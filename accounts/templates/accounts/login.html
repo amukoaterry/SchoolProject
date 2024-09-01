@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration</title>
+    <title>Login</title>
     <style>
         /* General styling for the body */
         body {
@@ -18,9 +18,9 @@
 
         form {
             border: 2px solid rgba(213, 166, 241, 0.6); /* Light purple border with opacity */
-            padding: 15px 25px; /* Reduced padding */
+            padding: 20px 30px; /* Adjust padding as needed */
             width: 100%;
-            max-width: 650px; /* Increased width */
+            max-width: 650px; /* Adjust width as needed */
             border-radius: 15px;
             background-color: #ffffff;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -40,7 +40,7 @@
             font-size: 16px;
             background-color: #f9f9f9;
             box-sizing: border-box;
-            box-shadow: 0 4px 12px rgba(100, 50, 150, 0.5); /* Softer dark purple shadow */
+            box-shadow: 0 4px 12px rgba(100, 50, 150, 0.3); /* Softer dark purple shadow */
             transition: box-shadow 0.3s ease;
         }
 
@@ -49,7 +49,7 @@
         input[type="password"]:focus,
         textarea:focus,
         select:focus {
-            box-shadow: 0 4px 15px rgba(100, 50, 150, 0.7); /* Darker purple shadow on focus */
+            box-shadow: 0 4px 15px rgba(100, 50, 150, 0.5); /* Slightly darker purple shadow on focus */
             outline: none;
         }
 
@@ -90,12 +90,13 @@
     </style>
 </head>
 <body>
-    <form method="POST" class="register">
+    <form method="post" class="register">
         {% csrf_token %}
-        <h2 class="student">Student Registration</h2>
-        <h3 class="studen">Sign Up</h3>
+        <h2 class="student">Login</h2>
         {{ form.as_p }}
-        <button type="submit" class="btnsave">Save</button>
+        <button type="submit" class="btnsave">Login</button>
     </form>
 </body>
 </html>
+ChatGPT said:
+ChatGPT
