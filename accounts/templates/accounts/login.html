@@ -5,98 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-        /* General styling for the body */
         body {
+            font-family: Arial, sans-serif;
+            background-color: #E3D7FF; 
+            color: #3E2C6B; 
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, rgba(233, 213, 255, 0.6), rgba(213, 166, 241, 0.6)); /* Softer purple gradient */
-        }
-
-        form {
-            border: 2px solid rgba(213, 166, 241, 0.6); /* Light purple border with opacity */
-            padding: 20px 30px; /* Adjust padding as needed */
-            width: 100%;
-            max-width: 650px; /* Adjust width as needed */
-            border-radius: 15px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box; /* Ensure padding is included in width */
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 10px 12px; /* Padding for inputs */
-            margin: 8px 0; /* Margin for inputs */
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-            background-color: #f9f9f9;
+            padding: 20px;
             box-sizing: border-box;
-            box-shadow: 0 4px 12px rgba(100, 50, 150, 0.3); /* Softer dark purple shadow */
-            transition: box-shadow 0.3s ease;
+            border: 10px solid #C4A3E4; 
         }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="password"]:focus,
-        textarea:focus,
-        select:focus {
-            box-shadow: 0 4px 15px rgba(100, 50, 150, 0.5); /* Slightly darker purple shadow on focus */
-            outline: none;
-        }
-
-        .btnsave {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin-top: 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #fff;
-            background-color: rgba(106, 13, 145, 0.8); /* Dark purple button with reduced opacity */
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 12px rgba(106, 13, 145, 0.3); /* Softer dark purple shadow */
-        }
-
-        .btnsave:hover {
-            background-color: rgba(138, 44, 119, 0.8); /* Lighter purple on hover with reduced opacity */
-            box-shadow: 0 6px 15px rgba(106, 13, 145, 0.5); /* Softer darker purple shadow on hover */
-        }
-
-        h2.student {
+        .login-container {
+            background-color: #D4BBFF; 
+            padding: 60px;
+            border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5); 
+            width: 900px; 
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
         }
-
-        h3.studen {
-            text-align: left;         
-            margin-bottom: 20px;
-            font-size: 18px;
-            color: black;
+        h2 {
+            margin-bottom: 40px;
+            color: #5D3B99; 
+            font-size: 36px; 
+        }
+        label {
+            display: block;
+            margin-bottom: 15px;
+            text-align: left;
+            color: #6E4C9B; 
+            font-size: 20px; 
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%; 
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #B299D7; 
+            border-radius: 6px;
+            background-color: #F3EBFF; 
+            color: #3E2C6B; 
+            font-size: 20px; 
+            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.4); 
+        }
+        input[type="submit"] {
+            background-color: #9B79D7; 
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%; 
+            font-size: 24px; 
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+        }
+        input[type="submit"]:hover {
+            background-color: #8361B6; 
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); 
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+        li {
+            color: #FF6B6B; 
+            font-size: 20px; 
         }
     </style>
 </head>
 <body>
-    <form method="post" class="register">
-        {% csrf_token %}
-        <h2 class="student">Login</h2>
-        {{ form.as_p }}
-        <button type="submit" class="btnsave">Login</button>
-    </form>
+    <div class="login-container">
+        <form method="post">
+            <h2>Login</h2>
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
 </body>
 </html>
-ChatGPT said:
-ChatGPT
