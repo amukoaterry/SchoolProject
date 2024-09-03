@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F3E5F5; /* Light lavender */
+            color: #4A148C; /* Deep purple for text */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 54px;
+            margin-bottom: 25px;
+            color: #7B1FA2; /* Medium purple */
+            text-shadow: 1px 1px 3px rgba(74, 20, 140, 0.6); /* Soft dark purple shadow */
+        }
+        p {
+            margin: 15px 0;
+            font-size: 20px;
+            color: #6A1B9A; /* Soft plum */
+        }
+        a {
+            color: #8E24AA; /* Vibrant purple */
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+        a:hover {
+            border-color: #AB47BC; /* Light vibrant purple underline on hover */
+        }
+        .logout-button {
+            background-color: #BA68C8; /* Light purple */
+            color: white;
+            padding: 12px 24px;
+            border: 2px solid #9C27B0; /* Medium purple border */
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s, border-color 0.3s;
+            box-shadow: 2px 2px 5px rgba(74, 20, 140, 0.5); /* Subtle dark purple shadow */
+        }
+        .logout-button:hover {
+            background-color: #AB47BC; /* Slightly darker light purple */
+            border-color: #CE93D8; /* Soft purple border on hover */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 25px;
+            width: 80%; /* Increased width */
+            max-width: 800px;
+        }
+        li {
+            color: #4A148C; /* Deep purple for text */
+            font-size: 18px;
+            margin-bottom: 10px;
+            background-color: #E1BEE7; /* Light pastel purple */
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(74, 20, 140, 0.4); /* Simple dark purple shadow */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Homepage</h1>
+    {% if user.is_authenticated %}
+        <p>You are logged in as {{ user.username }}.</p>
+        <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+    {% else %}
+        <p>Please <a href="{% url 'login' %}">login</a> to continue.</p>
+    {% endif %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
